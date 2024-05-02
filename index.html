@@ -9,10 +9,10 @@
     <style>
         /* Стили для центрирования элемента посредине страницы */
         .center {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
     </style>
 </head>
@@ -20,17 +20,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3 center">
-                <input id="datetime" type="datetime-local" class="form-control" style="margin-bottom: 20px;">
-                <button id="chooseBtn" class="btn btn-primary">Choose Date and Time</button>
+                <input id="datetime" type="datetime-local" class="form-control" autofocus>
+                <button id="chooseBtn" class="btn btn-primary mt-3">Choose Date and Time</button>
             </div>
         </div>
     </div>
     <script type="text/javascript">
-        // Открыть календарь по умолчанию
-        window.addEventListener('DOMContentLoaded', (event) => {
-            document.getElementById('datetime').click();
-        });
-
         Telegram.WebApp.ready();
         document.getElementById('chooseBtn').addEventListener('click', function () {
             const datetimeValue = document.getElementById('datetime').value;

@@ -4,12 +4,35 @@
     <meta charset="UTF-8">
     <title>python-telegram-bot Example WebApp</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Стили для центрирования элемента посредине страницы */
+        .center {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
 <body style="background-color: #ffffff">
-    <input id="datetime" type="datetime-local" style="margin: 50px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 center">
+                <input id="datetime" type="datetime-local" class="form-control" style="margin-bottom: 20px;">
+                <button id="chooseBtn" class="btn btn-primary">Choose Date and Time</button>
+            </div>
+        </div>
+    </div>
     <script type="text/javascript">
+        // Открыть календарь по умолчанию
+        window.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('datetime').click();
+        });
+
         Telegram.WebApp.ready();
-        Telegram.WebApp.MainButton.setText('Choose Date and Time').show().onClick(function () {
+        document.getElementById('chooseBtn').addEventListener('click', function () {
             const datetimeValue = document.getElementById('datetime').value;
             const data = JSON.stringify({datetime: datetimeValue});
             Telegram.WebApp.sendData(data);

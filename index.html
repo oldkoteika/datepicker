@@ -21,7 +21,6 @@
         <div class="row">
             <div class="col-md-6 offset-md-3 center">
                 <div id="datetimePicker" class="form-control"></div>
-                <button id="chooseBtn" class="btn btn-primary mt-3">Choose Date and Time</button>
             </div>
         </div>
     </div>
@@ -32,11 +31,12 @@
         const datetimePicker = flatpickr("#datetimePicker", {
             enableTime: true,
             dateFormat: "Y-m-d H:i",
-            defaultDate: "today" // Устанавливаем сегодняшнюю дату и время по умолчанию
+            defaultDate: "today", // Устанавливаем сегодняшнюю дату и время по умолчанию
+            inline: true // Открываем календарь без инпута
         });
 
-        document.getElementById('chooseBtn').addEventListener('click', function () {
-            const datetimeValue = datetimePicker.input.value;
+        Telegram.WebApp.MainButton.setText('Choose Date and Time').show().onClick(function () {
+            const datetimeValue = document.getElementById('datetime').value;
             const data = JSON.stringify({datetime: datetimeValue});
             Telegram.WebApp.sendData(data);
             Telegram.WebApp.close();

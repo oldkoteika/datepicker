@@ -5,9 +5,18 @@
     <title>python-telegram-bot Example WebApp</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        input {
-            width: 95%; /* или другое значение, в зависимости от вашего предпочтения */
-            /*max-width: 400px; /* чтобы не становилось слишком широким на больших экранах */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+        }
+
+        #datetime {
+            width: 100%; /* изменено на 100% */
+            max-width: 400px; /* чтобы не становилось слишком широким на больших экранах */
             margin: 0 auto; /* для центрирования */
         }
     </style>
@@ -28,4 +37,3 @@
     Telegram.WebApp.expand();
 </script>
 </html>
-

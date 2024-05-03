@@ -4,25 +4,12 @@
     <meta charset="UTF-8">
     <title>python-telegram-bot Example WebApp</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #ffffff;
-        }
-
-        #datetime {
-            width: 100%; /* изменено на 100% */
-            max-width: 400px; /* чтобы не становилось слишком широким на больших экранах */
-            margin: 0 auto; /* для центрирования */
-        }
-    </style>
+    
 </head>
-<body>
-    <input id="datetime" type="datetime-local">
+<body><div style="position: absolute; margin-top: 5vh; margin-left: 5vw; height: 90vh; width: 90vw; border-radius: 5vh; background-color: var(--tg-theme-bg-color); box-shadow: 0 0 2vw
+ #000000;">
+    <input style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%" id="datetime" type="datetime-local">
+        </div>
     <script type="text/javascript">
         Telegram.WebApp.ready();
         Telegram.WebApp.MainButton.setText('Choose Date and Time').show().onClick(function () {
